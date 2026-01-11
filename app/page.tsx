@@ -1,19 +1,48 @@
 export default function Home() {
   return (
-    <main className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-semibold">Probability Intelligence Terminal</h1>
-      <p className="muted mt-3">
-        MVP: market screener + snapshots + cron refresh. Deploy-ready on Vercel.
-      </p>
+    <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24 }}>
+      <div style={{ width: "100%", maxWidth: 760 }}>
+        <h1 style={{ fontSize: 40, fontWeight: 700, margin: "0 0 8px" }}>
+          Probability Intelligence Terminal
+        </h1>
 
-      <div className="mt-6 flex gap-4">
-        <a className="card" href="/dashboard">Open Dashboard</a>
-        <a className="card" href="/api/health">Health</a>
+        <p style={{ margin: "0 0 24px", opacity: 0.8, fontSize: 16 }}>
+          Market monitoring and probability snapshots.
+        </p>
+
+        <div style={{ display: "flex", gap: 12 }}>
+          <a
+            href="/dashboard"
+            style={{
+              display: "inline-block",
+              padding: "10px 14px",
+              borderRadius: 10,
+              border: "1px solid rgba(255,255,255,0.2)",
+              textDecoration: "none",
+            }}
+          >
+            Open Dashboard
+          </a>
+
+          <a
+            href="/api/health"
+            style={{
+              display: "inline-block",
+              padding: "10px 14px",
+              borderRadius: 10,
+              border: "1px solid rgba(255,255,255,0.2)",
+              textDecoration: "none",
+              opacity: 0.9,
+            }}
+          >
+            Health
+          </a>
+        </div>
+
+        <div style={{ marginTop: 28, opacity: 0.55, fontSize: 12 }}>
+          © {new Date().getFullYear()} PIT
+        </div>
       </div>
-
-      <p className="muted mt-8">
-        Next: indices, event research OS, settlement verification, integrity signals, hedging coach.
-      </p>
     </main>
   );
 }
