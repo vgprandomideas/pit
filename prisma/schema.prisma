@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MarketSnapshot {
+  id          String   @id @default(cuid())
+  provider    String
+  marketId    String
+  slug        String?
+  title       String
+  pYes        Float?
+  pNo         Float?
+  volume24h   Float?
+  liquidity   Float?
+  endTimeUtc  DateTime?
+  raw         Json
+  capturedAt  DateTime @default(now())
+
+  @@index([provider, marketId, capturedAt])
+  @@index([capturedAt])
+}
+
+model WatchlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  provider  String
+  marketId  String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, provider, marketId])
+}
